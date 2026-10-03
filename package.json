@@ -1,0 +1,51 @@
+{
+  "name": "domeggook-manager-desktop",
+  "version": "1.5.0",
+  "description": "도매꾹 상품관리 데스크톱 앱",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --win nsis --x64"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "exceljs": "^4.4.0",
+    "sql.js": "^1.13.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "concurrently": "^9.1.2",
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3",
+    "vite": "6.4.3",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.hibiznet.domeggookmanager",
+    "productName": "도매꾹 상품관리",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/domeggook-manager.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "도매꾹 상품관리"
+    }
+  }
+}

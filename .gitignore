@@ -1,0 +1,19 @@
+# Electron build output
+release/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Git backup
+.git_backup/
+
+
+.git_backup/

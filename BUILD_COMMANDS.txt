@@ -1,0 +1,12 @@
+Windows x64 build commands
+
+cd /d D:\DEVOPS\domeggook-manager
+
+rmdir /s /q node_modules
+del /q package-lock.json
+
+npm install --ignore-scripts
+node node_modules\electron\install.js
+node node_modules\esbuild\install.js
+set ELECTRON_BUILDER_7Z_FILTER=BCJ
+npx electron-builder --win nsis --x64
